@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>vJoy Controller</title>
+<style>
+body {
+    background-color: black;
+}
+.container {
+    position: relative;
+}
+.btn {
+    height: 100;
+    width: 100;
+    position: absolute;
+}
+.btn-circle {
+    stroke: #999999;
+    stroke-width: 3;
+    fill: red;
+}
+.label {
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <svg class="btn" style="top: 150px; left: 150px;" onclick="pressButton(0)">
+        <circle class="btn-circle" cx="50" cy="50" r="40" />
+    </svg>
+    <p class="label" style="top: 170px; left: 150px;">Label</p>
+</div>
+<script type="text/javascript">
+function pressButton(button) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/button/" + button, true);
+    xhr.send();
+}
+</script>
+</body>
+</html>
